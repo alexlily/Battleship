@@ -1,4 +1,4 @@
-import Tkinter as tk
+import tkinter as tk
 
 textfont = 'Times'
 textsize= 14
@@ -27,16 +27,16 @@ class Player(tk.Frame):
                 j.append(0)
         return array
     def print_board(self):        
-        print 'The board for {0} so far:'.format(str(self))
-        print ' | 0 1 2 3 4 5 6 7 8 9'
-        print '-----------------------'
+        print('The board for {0} so far:'.format(str(self)))
+        print(' | 0 1 2 3 4 5 6 7 8 9')
+        print('-----------------------')
         count = 0
         for line in self.board: 
-            print str(count) + '|',
+            print(str(count) + '|', end=' ')
             for char in line:
-                print char,
+                print(char, end=' ')
             count += 1
-            print ''  
+            print('')  
     def fixbuttons(self, buttongrid,cmd):
         for x in range(10):
             for y in range(10):
@@ -97,19 +97,19 @@ class Player(tk.Frame):
     def check_fit(self, x,y,size,orientation):
         if orientation == 'horizontal':
           if y+size-1 > 9:
-            print 'Boat does not fit there'
+            print('Boat does not fit there')
             return False
           for i in range(size):
             if self.board[x][y+i] == 1:
-              print 'Cannot overlap boats'
+              print('Cannot overlap boats')
               return False
         if orientation == 'vertical':
           if x+size-1 > 9:
-            print 'Boat does not fit there'
+            print('Boat does not fit there')
             return False
           for i in range(size):
             if self.board[x+i][y] == 1:
-              print 'Cannot overlap boats'
+              print('Cannot overlap boats')
               return False
         return True
 
@@ -233,7 +233,7 @@ Player 0 aims first. Good luck!
           self.boats = {'Aircraft Carrier':5, 'Battleship':4}
         elif num == '1':
           self.boats = {'Aircraft Carrier': 5}
-        self.boatlist = self.boats.keys()
+        self.boatlist = list(self.boats.keys())
         self.player0.numboats = len(self.boatlist)
         self.player1.numboats = len(self.boatlist)
         self.player0.pieces = sum(self.boats.values())

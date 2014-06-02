@@ -1,4 +1,4 @@
-Uses python 2.
+Uses python 3.
 Run python battleship.py to start the game.
 battleship.py is the code, the other files are for the images.
 
